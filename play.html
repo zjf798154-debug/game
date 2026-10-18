@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="数字接龙对局页：限时点选手牌，把数字接得越长越好。" />
+  <meta name="theme-color" content="#14110e" />
+  <title>开始游戏 · 数字接龙</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="bg"></div>
+  <div class="site play-site">
+    <nav class="nav">
+      <a class="brand" href="index.html">数字接龙</a>
+      <div class="nav-links">
+        <a href="index.html">首页</a>
+        <a href="play.html" aria-current="page">对局</a>
+      </div>
+    </nav>
+
+    <main class="app">
+      <header class="top">
+        <div>
+          <p class="eyebrow">PLAY</p>
+          <h1>对局中</h1>
+        </div>
+        <p class="rule">下一个数的<strong>首位</strong>必须等于当前数的<strong>末位</strong>。</p>
+      </header>
+
+      <section class="hud" aria-label="对局信息">
+        <div class="stat"><span>分数</span><strong id="score">0</strong></div>
+        <div class="stat"><span>连击</span><strong id="combo">0</strong></div>
+        <div class="stat"><span>生命</span><strong id="lives">3</strong></div>
+        <div class="stat"><span>时间</span><strong id="time">60</strong></div>
+        <div class="stat"><span>纪录</span><strong id="best">0</strong></div>
+      </section>
+
+      <section class="board">
+        <div class="current-wrap">
+          <p>当前龙头</p>
+          <div id="current" class="current">—</div>
+          <ol id="chain" class="chain" aria-label="已接龙数字"></ol>
+        </div>
+        <div class="hand-wrap">
+          <p>点选可以接上的数字</p>
+          <div id="hand" class="hand"></div>
+        </div>
+      </section>
+
+      <section class="controls">
+        <button id="startBtn" type="button">开始游戏</button>
+        <button id="pauseBtn" type="button" disabled>暂停</button>
+        <label class="diff">
+          难度
+          <select id="difficulty">
+            <option value="easy">轻松</option>
+            <option value="normal" selected>普通</option>
+            <option value="hard">挑战</option>
+          </select>
+        </label>
+      </section>
+      <p id="hint" class="hint">选择难度后点「开始游戏」。</p>
+    </main>
+  </div>
+
+  <div id="overlay" class="overlay hidden" hidden role="dialog" aria-modal="true">
+    <div class="modal">
+      <h2 id="overlayTitle">本局结束</h2>
+      <p id="overlayBody">再来挑战一次高分吧。</p>
+      <button id="overlayBtn" type="button">再来一局</button>
+    </div>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>

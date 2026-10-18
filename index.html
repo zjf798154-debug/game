@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="数字接龙网页小游戏：用末位接下一位的首位，限时连击拿高分。" />
+  <meta name="theme-color" content="#14110e" />
+  <title>数字接龙</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="bg"></div>
+  <div class="site">
+    <nav class="nav">
+      <a class="brand" href="index.html">数字接龙</a>
+      <div class="nav-links">
+        <a href="index.html" aria-current="page">首页</a>
+        <a class="nav-cta" href="play.html">开始游戏</a>
+      </div>
+    </nav>
+
+    <section class="hero">
+      <p class="eyebrow">NUMBER CHAIN · WEB</p>
+      <h1>把数字接成一条龙</h1>
+      <p class="lead">下一个数的首位必须等于当前数的末位。打开网页就能玩，纪录保存在这台浏览器里。</p>
+      <div class="hero-actions">
+        <a class="btn" href="play.html">立即开玩</a>
+        <p class="best-line">本地最高分 <strong id="homeBest">0</strong></p>
+      </div>
+      <div class="demo-chain" aria-hidden="true">
+        <span>17</span><i></i><span>72</span><i></i><span>25</span><i></i><span>50</span><i></i><span>08</span>
+      </div>
+    </section>
+
+    <section class="features">
+      <article>
+        <h2>怎么接</h2>
+        <p>看当前龙头的末位，从手牌里点出首位相同的数字。例如 50 后面只能接 00–09。</p>
+      </article>
+      <article>
+        <h2>怎么得分</h2>
+        <p>接对基础 10 分，连击会加分。11、22 这类同数还有额外加成。</p>
+      </article>
+      <article>
+        <h2>三种难度</h2>
+        <p>轻松时间更长、可选项更多；挑战生命更少、限时更紧。</p>
+      </article>
+    </section>
+  </div>
+  <script>
+    document.getElementById("homeBest").textContent =
+      localStorage.getItem("number-chain-best") || "0";
+  </script>
+</body>
+</html>
